@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Maquette3DSection from '../components/Maquette3DSection';
+import ProjetGenerateur from '../components/ProjetGenerateur';
 import { terrains } from '../data/terrains';
 import ScoreBadge from '../components/ScoreBadge';
 
@@ -14,7 +15,8 @@ export default function MaquettePage({ user, onUpgradeClick }) {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
-        <div className="space-y-3">
+        {/* Colonne gauche : choix terrain + générateur de projet */}
+        <div className="space-y-5">
           <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-4">
             <h3 className="font-semibold text-gray-700 text-sm mb-3">Choisir un terrain</h3>
             <div className="space-y-2">
@@ -37,8 +39,12 @@ export default function MaquettePage({ user, onUpgradeClick }) {
               ))}
             </div>
           </div>
+
+          {/* Générateur de projet IA */}
+          <ProjetGenerateur />
         </div>
 
+        {/* Colonne droite : maquette 3D */}
         <div className="lg:col-span-2">
           <Maquette3DSection
             terrain={selectedTerrain}

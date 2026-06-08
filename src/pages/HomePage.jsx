@@ -4,6 +4,7 @@ import StatsBar from '../components/StatsBar';
 import TerrainList from '../components/TerrainList';
 import MapView from '../components/MapView';
 import Maquette3DSection from '../components/Maquette3DSection';
+import ProjetGenerateur from '../components/ProjetGenerateur';
 import TerrainDetailPanel from '../components/TerrainDetailPanel';
 import { terrains, stats } from '../data/terrains';
 
@@ -68,6 +69,9 @@ export default function HomePage({ user, onUpgradeClick }) {
             </div>
           </div>
         </div>
+
+        {/* Création de projet IA */}
+        <ProjetGenerateur />
 
         {/* 3D Mockup section */}
         <Maquette3DSection
