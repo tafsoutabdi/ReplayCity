@@ -39,7 +39,7 @@ function FlyTo({ terrain }) {
 }
 
 export default function MapView({ terrains, selectedTerrain, onSelect }) {
-  const center = [45.75, 4.84];
+  const center = [43.7102, 7.2620];
 
   return (
     <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col h-full">

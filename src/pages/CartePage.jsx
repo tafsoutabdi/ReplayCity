@@ -20,7 +20,7 @@ export default function CartePage() {
         </div>
         <div className="flex items-center gap-2 text-sm text-gray-500">
           <Filter size={16} />
-          <span>Lyon, France</span>
+          <span>Nice, France</span>
         </div>
       </div>
 
