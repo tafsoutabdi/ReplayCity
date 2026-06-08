@@ -25,3 +25,10 @@ body {
   height: 100%;
   border-radius: 0.5rem;
 }
+
+.leaflet-map-wrapper {
+  isolation: isolate;
+  position: relative;
+  height: 100%;
+}
+ 

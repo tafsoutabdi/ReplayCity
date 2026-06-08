@@ -34,7 +34,7 @@ export default function LandingPage() {
       }}>
 
         {/* Texte centré */}
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: '3rem', paddingBottom: '1rem' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: '4rem', paddingBottom: '1rem' }}>
           <div style={{ textAlign: 'center', maxWidth: '540px', padding: '0 1.5rem' }}>
 
             <h1 style={{
@@ -84,7 +84,7 @@ export default function LandingPage() {
               </button>
             </div>
 
-            <p style={{ fontSize: '11px', color: '#9BB', marginTop: '10px' }}>
+            <p style={{ fontSize: '11px', color: '#9BB', marginTop: '10px'}}>
               * Accès direct temporaire - sans connexion requise
             </p>
           </div>
@@ -139,7 +139,7 @@ export default function LandingPage() {
                 background: '#1a7a5e', borderRadius: '999px', padding: '5px 16px',
                 fontSize: '11px', fontWeight: 600, color: '#fff', whiteSpace: 'nowrap',
               }}>
-                ✦ Après - projet IA
+                Après - projet IA
               </div>
             </div>
           </div>

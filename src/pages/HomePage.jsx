@@ -59,11 +59,13 @@ export default function HomePage({ user, onUpgradeClick }) {
 
           {/* Map */}
           <div className="lg:col-span-2">
-            <MapView
-              terrains={terrains}
-              selectedTerrain={selectedTerrain}
-              onSelect={setSelectedTerrain}
-            />
+            <div className="leaflet-map-wrapper">
+              <MapView
+                terrains={terrains}
+                selectedTerrain={selectedTerrain}
+                onSelect={setSelectedTerrain}
+              />
+            </div>
           </div>
         </div>
 
