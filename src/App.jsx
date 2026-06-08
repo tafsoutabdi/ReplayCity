@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
 import CartePage from './pages/CartePage';
@@ -7,28 +7,43 @@ import MaquettePage from './pages/MaquettePage';
 import DashboardPage from './pages/DashboardPage';
 import AuthPage from './pages/AuthPage';
 import UpgradeModal from './pages/UpgradeModal';
+import LandingPage from './pages/LandingPage';
 
-export default function App() {
-  const [user, setUser] = useState({
+function AppContent({ user, setUser, showUpgrade, setShowUpgrade }) {
+  const location = useLocation();
+  const hiddenNavRoutes = ['/landing'];
+  const showNav = !hiddenNavRoutes.includes(location.pathname);
+
+  const JULIE = {
     name: 'Julie',
     email: 'julie@replaycity.fr',
     plan: 'pro',
     avatar: 'https://api.dicebear.com/7.x/initials/svg?seed=Julie',
-  });
-  const [showUpgrade, setShowUpgrade] = useState(false);
+  };
 
-  const handleLogin = (userData) => setUser(userData);
+  const handleLogin = (userData) => {
+    if (userData.email === JULIE.email) {
+      setUser(JULIE);
+    } else {
+      setUser(userData);
+    }
+  };
   const handleLogout = () => setUser(null);
   const handleUpgrade = () => setUser((u) => ({ ...u, plan: 'pro' }));
 
   return (
-    <BrowserRouter>
-      <Navbar user={user} onLogout={handleLogout} />
+    <>
+      {showNav && <Navbar user={user} onLogout={handleLogout} />}
 
       <Routes>
+        <Route path="/landing" element={<LandingPage />} />
         <Route
           path="/"
-          element={<HomePage user={user} onUpgradeClick={() => setShowUpgrade(true)} />}
+          element={
+            user
+              ? <HomePage user={user} onUpgradeClick={() => setShowUpgrade(true)} />
+              : <Navigate to="/landing" replace />
+          }
         />
         <Route path="/carte" element={<CartePage />} />
         <Route
@@ -38,11 +53,10 @@ export default function App() {
         <Route
           path="/dashboard"
           element={
-            user ? (
-              <DashboardPage user={user} onUpgradeClick={() => setShowUpgrade(true)} />
-            ) : (
-              <Navigate to="/connexion" replace />
-            )
+            <DashboardPage
+              user={user || { name: 'Invité', email: 'invite@replaycity.fr', plan: 'freemium', avatar: 'https://api.dicebear.com/7.x/initials/svg?seed=Invite' }}
+              onUpgradeClick={() => setShowUpgrade(true)}
+            />
           }
         />
         <Route
@@ -61,6 +75,22 @@ export default function App() {
           onUpgrade={handleUpgrade}
         />
       )}
+    </>
+  );
+}
+
+export default function App() {
+  const [user, setUser] = useState(null);
+  const [showUpgrade, setShowUpgrade] = useState(false);
+
+  return (
+    <BrowserRouter>
+      <AppContent
+        user={user}
+        setUser={setUser}
+        showUpgrade={showUpgrade}
+        setShowUpgrade={setShowUpgrade}
+      />
     </BrowserRouter>
   );
 }
