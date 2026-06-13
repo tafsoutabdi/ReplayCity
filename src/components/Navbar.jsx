@@ -4,8 +4,7 @@ import { ChevronDown, LogOut, User, CreditCard, LayoutDashboard } from 'lucide-r
 
 const tabs = [
   { label: 'Tableau de bord', path: '/' },
-  { label: 'Carte Interactive', path: '/carte' },
-  { label: 'Maquette 3D', path: '/maquette' },
+  { label: 'Conception', path: '/maquette' },
 ];
 
 export default function Navbar({ user, onLogout }) {

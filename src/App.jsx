@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
-import CartePage from './pages/CartePage';
 import MaquettePage from './pages/MaquettePage';
 import DashboardPage from './pages/DashboardPage';
 import AuthPage from './pages/AuthPage';
@@ -45,7 +44,6 @@ function AppContent({ user, setUser, showUpgrade, setShowUpgrade }) {
               : <Navigate to="/landing" replace />
           }
         />
-        <Route path="/carte" element={<CartePage />} />
         <Route
           path="/maquette"
           element={<MaquettePage user={user} onUpgradeClick={() => setShowUpgrade(true)} />}
