@@ -77,6 +77,7 @@ src/
 ├── services/
 └── App.jsx
 
+```
 ---
 
 ## Installation
