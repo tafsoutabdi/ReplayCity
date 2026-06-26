@@ -51,7 +51,7 @@ function AppContent({ user, setUser, showUpgrade, setShowUpgrade }) {
         <Route
           path="/dashboard"
           element={
-            <DashboardPage
+            <HomePage
               user={user || { name: 'Invité', email: 'invite@replaycity.fr', plan: 'freemium', avatar: 'https://api.dicebear.com/7.x/initials/svg?seed=Invite' }}
               onUpgradeClick={() => setShowUpgrade(true)}
             />
