@@ -122,6 +122,7 @@ Une fois son développement suffisamment avancé, elle sera connectée à l’ap
 
 Les informations techniques relatives au backend seront ajoutées à cette documentation lorsque son intégration sera finalisée.
 
+[lien vers le backend ](https://github.com/capatainkomic/backend-replay-city)
 ---
 
 ## Statut du projet
